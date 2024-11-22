@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Details</title>
+</head>
+<body>
+    <a href="/" style="text-decoration: none;">
+        <button style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+            Back to Homepage
+        </button>
+    </a>
+
+    <h1>Disaster Details</h1>
+    <p><strong>Type:</strong> <%= disaster.disaster_type %></p>
+    <p><strong>Location:</strong> <%= disaster.location %></p>
+    <p><strong>Severity:</strong> <%= disaster.severity %></p>
+
+    <h2>Reports</h2>
+    <ul>
+        <% reports.forEach(report => { %>
+            <li>
+                <strong><%= report.reporter_name %>:</strong> <%= report.description %>
+            </li>
+        <% }); %>
+    </ul>
+
+    <h3>Add a Report</h3>
+    <form action="/disaster/<%= disaster.id %>/report" method="POST">
+        <label for="reporter_name">Name:</label><br>
+        <input type="text" id="reporter_name" name="reporter_name" required><br><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+        <button type="submit" style="padding: 10px 20px; background-color: #008CBA; color: white; border: none; cursor: pointer;">
+            Submit Report
+        </button>
+    </form>
+
+    <h3>Actions</h3>
+    <!-- Clear Disaster Button -->
+    <form action="/disaster/<%= disaster.id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this disaster?');">
+        <button type="submit" style="padding: 10px 20px; background-color: #FF4C4C; color: white; border: none; cursor: pointer;">
+            Clear Disaster
+        </button>
+    </form>
+</body>
+</html>

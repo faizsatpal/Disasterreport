@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disaster Reports</title>
+    <link rel="stylesheet" href="public/css/styles.css">
+</head>
+<body>
+    <h1>Disaster Reports</h1>
+    <a href="/add">Add New Disaster</a>
+    <ul>
+        <% disasters.forEach(disaster => { %>
+            <li>
+                <a href="/disaster/<%= disaster.id %>"><%= disaster.disaster_type %></a>
+                - <%= disaster.location %> (Severity: <%= disaster.severity %>)
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

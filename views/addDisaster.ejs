@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Disaster</title>
+</head>
+<body>
+    <a href="/" style="text-decoration: none;">
+        <button style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+            Back to Homepage
+        </button>
+    </a>
+
+    <h1>Add a New Disaster</h1>
+    <form action="/add" method="POST">
+        <label for="disaster_type">Disaster Type:</label><br>
+        <input type="text" id="disaster_type" name="disaster_type" required><br><br>
+
+        <label for="location">Location:</label><br>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <label for="severity">Severity:</label><br>
+        <select id="severity" name="severity" required>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select><br><br>
+
+        <button type="submit" style="padding: 10px 20px; background-color: #008CBA; color: white; border: none; cursor: pointer;">
+            Add Disaster
+        </button>
+    </form>
+</body>
+</html>
